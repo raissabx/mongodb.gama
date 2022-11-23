@@ -1,0 +1,33 @@
+use("magalu");
+
+db.createCollection("produtos");
+
+db.produtos.insertOne({"nome":"arroz"});
+
+db.produtos.insertMany([
+  {"nome":"celular"},
+  {"nome":"cachaça"},
+  {"nome":"batedeira"},
+  {"nome":"mesa"},
+  {"nome":"café"}  
+]);
+
+db.produtos.findOne();
+
+db.produtos.find();
+
+db.produtos.find({"nome":"café"});
+
+db.produtos.find({"nome": {$ne: "mesa"}});
+
+db.produtos.find({ $or: [
+  {"nome": "mesa"},
+  {"nome":"cachaça"}
+  ]
+});
+
+db.produtos.find().sort({"nome":1});
+
+db.produtos.find().sort({"nome":-1});
+
+db.produtos.drop();
