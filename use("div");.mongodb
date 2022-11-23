@@ -226,3 +226,12 @@ db.alunos.find({"idade": 32});
 db.alunos.find({"estado":"GO"});
 
 db.alunos.find();
+
+
+
+db.alunos.updateOne(
+    {"nome": "Fernando"},
+    {$set:{"filhos": 1}}
+    );
+
+db.alunos.find({"nome": "Fernando"});
